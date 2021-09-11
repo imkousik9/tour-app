@@ -23,21 +23,21 @@ export default function Home() {
         </div>
         <div className="flex items-center justify-between mt-8">
           <HomeCard
-            img="/img/tours/tour-4-cover.jpg"
+            img={`${process.env.NEXT_PUBLIC_URL}/tours/tour-4-cover.jpg`}
             title="The City Wanderer"
             slug="the-city-wanderer"
             price="₹20,000"
             size={{ h: 'h-96', w: 'w-72' }}
           />
           <HomeCard
-            img="/img/tours/tour-3-cover.jpg"
+            img={`${process.env.NEXT_PUBLIC_URL}/tours/tour-3-cover.jpg`}
             title="The Snow Adventurer"
             slug="the-snow-adventurer"
             price="₹25,000"
             size={{ h: 'h-96', w: 'w-72' }}
           />
           <HomeCard
-            img="/img/tours/tour-5-cover.jpg"
+            img={`${process.env.NEXT_PUBLIC_URL}/tours/tour-5-cover.jpg`}
             title="The Park Camper"
             slug="the-park-camper"
             price="₹25,000"

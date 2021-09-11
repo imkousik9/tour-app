@@ -5,7 +5,7 @@ const HeroSection = () => {
     <div
       style={{
         backgroundSize: 'cover',
-        backgroundImage: 'url(/img/tours/tour-1-cover.jpg)',
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_URL}/tours/tour-1-cover.jpg)`,
         backgroundPosition: 'center center'
       }}
       className="min-h-screen flex justify-center items-center flex-col"
