@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navigation-wrapper {
+  position: relative;
+}
+
+.dots {
+  display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 12px;
+  height: 12px;
+  background: #b2f3c9;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #109e42;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  fill: #109e42;
+  cursor: pointer;
+  border: 4px solid #109e42;
+  border-radius: 999px;
+  padding: 8px;
+}
+
+.arrow--left {
+  left: 75px;
+}
+
+.arrow--right {
+  left: 680px;
+}
+.arrow--disabled {
+  fill: #bce4ca;
+  border: 4px solid #bce4ca;
+}
+
+.height {
+  height: 500px;
+}
