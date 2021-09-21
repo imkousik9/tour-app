@@ -9,13 +9,13 @@ export default function Home() {
       <section className="bg-gray-100 p-36">
         <div className="flex items-center justify-between space-x-14">
           <HomeCard
-            img="/img/img-2.jpg"
+            img={`${process.env.NEXT_PUBLIC_URL}/tours/img-2.jpg`}
             title="The Island Adventurer"
             summary="Travel through the Islands of Bali in a Private Cruise"
             size={{ h: 'h-96', w: 'w-2/4' }}
           />
           <HomeCard
-            img="/img/img-8.jpg"
+            img={`${process.env.NEXT_PUBLIC_URL}/tours/img-8.jpg`}
             title="The Desert Storm"
             summary="Ride through the Sahara Desert on a guided camel tour"
             size={{ h: 'h-96', w: 'w-2/4' }}

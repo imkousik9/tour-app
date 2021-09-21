@@ -2,9 +2,10 @@ import React from 'react';
 import NextLink from 'next/link';
 import Router from 'next/router';
 import { useAuth } from '../../lib/hooks';
+import Loader from '../Loader';
 
 function NavBar() {
-  const { user, signOut } = useAuth();
+  const { user, isLoading, signOut } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +13,7 @@ function NavBar() {
   };
 
   return (
-    <header className="capitalize bg-gradient-to-r from-green-500 via-green-600 to-blue-500 text-gray-50 px-12 h-16 z-50 flex justify-between items-center">
+    <header className="capitalize bg-gradient-to-r from-green-500 via-green-600 to-blue-500 text-gray-50 px-12 h-16 z-50 flex justify-between items-center sticky top-0">
       <nav className="flex items-center flex-2">
         <NextLink href="/">
           <a className="mr-4 cursor-pointer w-16">
@@ -46,11 +47,15 @@ function NavBar() {
         />
       </form>
 
-      {user ? (
+      {isLoading ? (
+        <span className="flex justify-end">
+          <Loader size="text-3xl" />
+        </span>
+      ) : user ? (
         <nav className="flex items-center flex-2 justify-end">
-          <NextLink href="/bookings">
+          <NextLink href={user?.role === 'admin' ? '/dashboard' : '/bookings'}>
             <a className="mr-8 text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
-              My bookings
+              {user?.role === 'admin' ? 'Dashboard' : 'My bookings'}
             </a>
           </NextLink>
           <button
