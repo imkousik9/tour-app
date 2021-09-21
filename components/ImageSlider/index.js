@@ -6,7 +6,7 @@ import ArrowRight from '../icons/ArrowRight';
 
 import 'keen-slider/keen-slider.min.css';
 
-function ImageSlider({ images, classNames }) {
+function ImageSlider({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
 

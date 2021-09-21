@@ -5,6 +5,7 @@ import useBookings from '../lib/hooks/useBookings';
 
 import Layout from '../components/Layout';
 import BookingCard from '../components/BookingCard';
+import Loader from '../components/Loader';
 
 function Bookings() {
   const { user } = useAuth();
@@ -21,7 +22,9 @@ function Bookings() {
     <Layout title="My Bookings">
       <div className="flex flex-col justify-center py-6 px-20">
         {bookingsQuery.isLoading ? (
-          <span>Loading...</span>
+          <span className="flex justify-center">
+            <Loader size="text-6xl" />
+          </span>
         ) : bookingsQuery.data?.length === 0 ? (
           <p className="text-2xl font-semibold mx-auto">
             No bookings found, please book some slot.
