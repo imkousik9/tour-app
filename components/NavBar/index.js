@@ -24,11 +24,13 @@ function NavBar() {
             />
           </a>
         </NextLink>
-        <NextLink href="/tours">
-          <a className="text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
-            All tours
-          </a>
-        </NextLink>
+        {user?.role !== 'admin' && (
+          <NextLink href="/tours">
+            <a className="text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+              All tours
+            </a>
+          </NextLink>
+        )}
       </nav>
       <form
         className="flex items-center border-2 border-solid border-gray-50 py-1 px-2 rounded-md"
