@@ -5,7 +5,8 @@ import getTours from '../lib/getTours';
 export async function getStaticProps() {
   const tours = await getTours();
   return {
-    props: { tours }
+    props: { tours },
+    revalidate: 200
   };
 }
 

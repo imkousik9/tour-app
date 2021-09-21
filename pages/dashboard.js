@@ -15,7 +15,8 @@ import Loader from '../components/Loader';
 export async function getStaticProps() {
   const tours = await getTours();
   return {
-    props: { tours }
+    props: { tours },
+    revalidate: 200
   };
 }
 
