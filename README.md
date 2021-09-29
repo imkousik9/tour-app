@@ -12,7 +12,7 @@ Tour booking app built with Next.js and Expressjs
 
 Frontend Code -> [https://github.com/imkousik9/tour-app](https://github.com/imkousik9/tour-app)
 <br>
-Backend Code -> [https://github.com/imkousik9/tour-app-server](https://github.com/imkousik9/tour-server)
+Backend Code -> [https://github.com/imkousik9/tour-app-server](https://github.com/imkousik9/tour-app-server)
 <br>
 Deployed URL -> [https://tour-app-pi.vercel.app](https://tour-app-pi.vercel.app)
 <br>
@@ -59,7 +59,7 @@ After running the development server the site should be running on https://local
 
 <b>Frontend</b>: Reactjs, Nextjs
 <br>
-<b>Backend</b>: Expressjs, mongodb, mongoose
+<b>Backend</b>: Expressjs, mongodb, mongoose, Redis
 <br>
 <b>Styling</b>: Tailwindcss
 <br>
