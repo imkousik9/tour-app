@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-function Auth({ type, onSubmit, form, message }) {
+function Auth({ type, onSubmit, onTestSubmit, form, message }) {
   const { formData, errors, handleInput, isFormValid } = form;
 
   return (
@@ -59,6 +59,16 @@ function Auth({ type, onSubmit, form, message }) {
           />
           <div className="flex flex-col items-center">
             <p className="text-red-500 mb-6 align-middle">{message}</p>
+
+            {type !== 'Sign Up' && (
+              <button
+                className="mb-4 text-lg py-2 px-7 rounded-full uppercase inline-block font-medium cursor-pointer text-white bg-green-500 transition-all duration-300 hover:-translate-y-px hover:shadow-lg disabled:bg-gray-400 disabled:text-gray-300"
+                onClick={onTestSubmit}
+                type="submit"
+              >
+                Login With Test Credentials
+              </button>
+            )}
 
             <button
               className="mb-4 text-lg py-2 px-7 rounded-full uppercase inline-block font-medium cursor-pointer text-white bg-green-500 transition-all duration-300 hover:-translate-y-px hover:shadow-lg disabled:bg-gray-400 disabled:text-gray-300"

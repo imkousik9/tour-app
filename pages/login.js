@@ -13,6 +13,19 @@ function Login() {
   const form = useForm(obj);
   const auth = useAuth();
 
+  const testUserLogin = async (e) => {
+    e.preventDefault();
+
+    const email = 'test@mail.com';
+    const password = 'test1234';
+
+    try {
+      await auth.signIn(email, password);
+    } catch (error) {
+      setMessage(error.response.data?.message);
+    }
+  };
+
   const logIn = async (e) => {
     e.preventDefault();
     try {
@@ -22,7 +35,15 @@ function Login() {
     }
   };
 
-  return <Auth type="Log In" onSubmit={logIn} form={form} message={message} />;
+  return (
+    <Auth
+      type="Log In"
+      onSubmit={logIn}
+      onTestSubmit={testUserLogin}
+      form={form}
+      message={message}
+    />
+  );
 }
 
 export default Login;
