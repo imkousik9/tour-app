@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 
-function HomeCard({ img, title, summary, slug, price, size }) {
+function HomeCard({ img, title, summary, slug, price, cls }) {
   const link = slug ? `/tour/${slug}` : '/tours';
   return (
     <div
@@ -9,12 +9,12 @@ function HomeCard({ img, title, summary, slug, price, size }) {
         backgroundImage: `url(${img})`,
         backgroundPosition: 'center center'
       }}
-      className={`${size.h} ${size.w} flex justify-center items-center flex-col m-3 rounded-md shadow-lg`}
+      className={`${cls} h-96 w-full my-7 flex justify-center items-center flex-col rounded-md shadow-lg`}
     >
       <h1 className="text-green-800 text-uppercase text-center text-2xl font-bold">
         {title}
       </h1>
-      <p className="text-gray-700 mt-4 font-medium">{summary}</p>
+      <p className="text-gray-700 mt-4 text-center font-medium">{summary}</p>
       {slug && (
         <p className="text-green-800 text-lg font-medium">
           &#11088;&#11088;&#11088;&#11088;&#11088;

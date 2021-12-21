@@ -62,7 +62,7 @@ function UpdateTour({ slug }) {
 
   return (
     <div className="p-10 bg-gray-50 min-h-screen">
-      <form className="flex flex-col px-52" onSubmit={handleSubmit}>
+      <form className="flex flex-col md:px-20 lg:px-52" onSubmit={handleSubmit}>
         <label htmlFor="name" className="block text-lg font-semibold mb-3">
           Name
         </label>

@@ -11,14 +11,14 @@ function Tour({ tour, setSelect, setSlug }) {
 
   return (
     <div className="flex bg-gray-100 rounded-lg m-4">
-      <div className="w-img">
+      <div className="w-64 lg:w-img hidden md:inline-flex">
         <img
           className="h-full rounded-lg"
           src={`${process.env.NEXT_PUBLIC_URL}/tours/${tour.imageCover}`}
           alt=""
         />
       </div>
-      <div className="px-8 py-4 w-full">
+      <div className="px-4 md:px-8 py-4 w-full text-sm md:text-base">
         <p>
           <span className="font-semibold">Name:</span> {tour.name}
         </p>
@@ -48,9 +48,9 @@ function Tour({ tour, setSelect, setSlug }) {
           {tour.startLocation}
         </p>
       </div>
-      <div className="flex flex-col items-center justify-center space-y-3 mr-8">
+      <div className="flex flex-col items-center justify-center space-y-3 mr-2 md:mr-4 lg:mr-8 text-sm md:text-base">
         <button
-          className="bg-green-500 hover:bg-green-600 text-white font-medium px-4 py-2 rounded-full w-24 transition-colors"
+          className="bg-green-500 hover:bg-green-600 text-white font-medium px-4 py-2 rounded-full w-20 md:w-24 transition-colors"
           onClick={() => {
             setSelect('Update Tour');
             setSlug(tour.slug);
@@ -59,7 +59,7 @@ function Tour({ tour, setSelect, setSlug }) {
           Update
         </button>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-full w-24 transition-colors"
+          className="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-full w-20 md:w-24 transition-colors"
           onClick={handleDelete}
         >
           {deletePostInfo.isLoading

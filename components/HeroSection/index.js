@@ -10,12 +10,12 @@ const HeroSection = () => {
       }}
       className="min-h-screen flex justify-center items-center flex-col"
     >
-      <div className="border-8 border-green-800 rounded-2xl p-24 text-center">
-        <h1 className="text-black uppercase text-center text-4xl font-bold">
+      <div className="border-8 border-green-800 rounded-2xl p-14 lg:p-24 text-center">
+        <h1 className="text-black uppercase text-cente text-xl md:text-2xl lg:text-4xl font-bold">
           It won&apos;t be returned without a story
         </h1>
 
-        <h4 className="text-green-900 text-xl font-medium mt-2">
+        <h4 className="text-green-900 text-lg md:text-xl font-medium mt-2">
           Breathtaking hike through the Canadian Banff National Park
         </h4>
       </div>

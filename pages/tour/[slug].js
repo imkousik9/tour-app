@@ -43,7 +43,7 @@ function Tour({ tour }) {
 
   return (
     <Layout title={tour.name}>
-      <div className="flex flex-1 p-5">
+      <div className="flex flex-col md:flex-row flex-1 p-5">
         <ImageSlider images={tour.images} />
         <TourDetails tour={tour} user={user} />
       </div>
