@@ -1,9 +1,7 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 
 import getTour from '../../lib/getTour';
 import getTours from '../../lib/getTours';
-import { useAuth } from '../../lib/hooks';
 
 import Layout from '../../components/Layout';
 import ImageSlider from '../../components/ImageSlider';
@@ -32,20 +30,11 @@ export async function getStaticProps({ params }) {
 }
 
 function Tour({ tour }) {
-  const router = useRouter();
-  const { user } = useAuth();
-
-  React.useEffect(() => {
-    if (!user) {
-      router.replace('/login?next=/tour/' + tour.slug);
-    }
-  }, [user, router, tour.slug]);
-
   return (
     <Layout title={tour.name}>
       <div className="flex flex-col md:flex-row flex-1 p-5">
         <ImageSlider images={tour.images} />
-        <TourDetails tour={tour} user={user} />
+        <TourDetails tour={tour} />
       </div>
     </Layout>
   );

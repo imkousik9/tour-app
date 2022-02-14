@@ -1,6 +1,5 @@
 import React from 'react';
-import Router from 'next/router';
-import { useAuth } from '../lib/hooks';
+import { authRouteUser } from '../lib/authRoute';
 import useBookings from '../lib/hooks/useBookings';
 
 import Layout from '../components/Layout';
@@ -8,14 +7,6 @@ import BookingCard from '../components/BookingCard';
 import Loader from '../components/Loader';
 
 function Bookings() {
-  const { user } = useAuth();
-
-  React.useEffect(() => {
-    if (!user) {
-      Router.replace('/');
-    }
-  }, [user]);
-
   const bookingsQuery = useBookings();
 
   return (
@@ -42,4 +33,4 @@ function Bookings() {
   );
 }
 
-export default Bookings;
+export default authRouteUser(Bookings);

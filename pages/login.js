@@ -8,8 +8,6 @@ const obj = {
 };
 
 function Login() {
-  const [message, setMessage] = React.useState('');
-
   const form = useForm(obj);
   const auth = useAuth();
 
@@ -21,18 +19,14 @@ function Login() {
 
     try {
       await auth.signIn(email, password);
-    } catch (error) {
-      setMessage(error.response.data?.message);
-    }
+    } catch (error) {}
   };
 
   const logIn = async (e) => {
     e.preventDefault();
     try {
       await auth.signIn(form.formData?.email, form.formData?.password);
-    } catch (error) {
-      setMessage(error.response.data?.message);
-    }
+    } catch (error) {}
   };
 
   return (
@@ -41,7 +35,7 @@ function Login() {
       onSubmit={logIn}
       onTestSubmit={testUserLogin}
       form={form}
-      message={message}
+      message={auth.error?.message}
     />
   );
 }

@@ -1,6 +1,5 @@
 import React from 'react';
-import Router from 'next/router';
-import { useAuth } from '../lib/hooks';
+import { authRouteAdmin } from '../lib/authRoute';
 import getTours from '../lib/getTours';
 import useBookings from '../lib/hooks/useBookings';
 
@@ -23,14 +22,8 @@ export async function getStaticProps() {
 function Dashboard({ tours }) {
   const [select, setSelect] = React.useState('All Bookings');
   const [slug, setSlug] = React.useState('');
-  const { user } = useAuth();
-  const bookingsQuery = useBookings();
 
-  React.useEffect(() => {
-    if (!user || !user?.role === 'admin') {
-      Router.replace('/');
-    }
-  }, [user]);
+  const bookingsQuery = useBookings();
 
   let display;
   switch (select) {
@@ -85,4 +78,4 @@ function Dashboard({ tours }) {
   );
 }
 
-export default Dashboard;
+export default authRouteAdmin(Dashboard);

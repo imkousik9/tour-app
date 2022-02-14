@@ -9,8 +9,6 @@ const obj = {
 };
 
 function Register() {
-  const [message, setMessage] = React.useState('');
-
   const form = useForm(obj);
   const auth = useAuth();
 
@@ -22,13 +20,16 @@ function Register() {
         form.formData?.email,
         form.formData?.password
       );
-    } catch (error) {
-      setMessage(error.response.data?.message);
-    }
+    } catch (error) {}
   };
 
   return (
-    <Auth type="Sign Up" onSubmit={signUp} form={form} message={message} />
+    <Auth
+      type="Sign Up"
+      onSubmit={signUp}
+      form={form}
+      message={auth.error?.message}
+    />
   );
 }
 export default Register;

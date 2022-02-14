@@ -1,6 +1,11 @@
+import { useRouter } from 'next/router';
+import { useAuth } from '../../lib/hooks';
 import axios from '../../utils/axios';
 
-function RazorPay({ user, tour, day, slot }) {
+function RazorPay({ tour, day, slot }) {
+  const router = useRouter();
+  const { user } = useAuth();
+
   function loadScript(src) {
     return new Promise((resolve) => {
       const script = document.createElement('script');
@@ -44,7 +49,7 @@ function RazorPay({ user, tour, day, slot }) {
       prefill: {
         name: user?.name,
         email: user?.email ? user?.email : 'xyz@mail.com',
-        phone_number: '9899999999'
+        contact: '9899999999'
       }
     };
     const paymentObject = new window.Razorpay(options);
@@ -54,7 +59,11 @@ function RazorPay({ user, tour, day, slot }) {
     <button
       className={`cursor-pointer self-center bg-green-500 text-white text-lg font-semibold py-3 px-8 rounded-full hover:bg-green-600 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed`}
       disabled={!day || !slot}
-      onClick={displayRazorpay}
+      onClick={() => {
+        user
+          ? displayRazorpay()
+          : router.replace('/login?next=/tour/' + tour.slug);
+      }}
     >
       Book Now
     </button>
