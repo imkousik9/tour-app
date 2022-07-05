@@ -13,7 +13,7 @@ export async function getStaticProps() {
 function Tours({ tours }) {
   return (
     <Layout title="All Tours Plans">
-      <div className="p-10 flex flex-wrap bg-gray-100;">
+      <div className="flex flex-wrap bg-gray-100 p-10">
         {tours?.map((tour) => (
           <TourCard key={tour._id} tour={tour} />
         ))}
