@@ -5,7 +5,7 @@ import useSaveTour from '../../lib/hooks/useSaveTour';
 
 import DateTime from './DateTime';
 
-function UpdateTour({ slug }) {
+function UpdateTour({ path }) {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [dates, setDates] = useState([]);
@@ -34,7 +34,9 @@ function UpdateTour({ slug }) {
     }
 
     fetchTour();
-  }, [slug]);
+  }, []);
+
+  const slug = path ? path[1] : null;
 
   const [savePost, savePostInfo] = useSaveTour();
 
@@ -61,9 +63,9 @@ function UpdateTour({ slug }) {
   };
 
   return (
-    <div className="p-10 bg-gray-50 min-h-screen">
+    <div className="min-h-screen bg-gray-50 p-10">
       <form className="flex flex-col md:px-20 lg:px-52" onSubmit={handleSubmit}>
-        <label htmlFor="name" className="block text-lg font-semibold mb-3">
+        <label htmlFor="name" className="mb-3 block text-lg font-semibold">
           Name
         </label>
         <input
@@ -73,11 +75,11 @@ function UpdateTour({ slug }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="name"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
         <label
           htmlFor="startLocation"
-          className="block text-lg font-semibold mb-3"
+          className="mb-3 block text-lg font-semibold"
         >
           Start Location
         </label>
@@ -88,11 +90,11 @@ function UpdateTour({ slug }) {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           placeholder="start location"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
         <DateTime dates={dates} setDates={setDates} />
 
-        <label htmlFor="price" className="block text-lg font-semibold mb-3">
+        <label htmlFor="price" className="mb-3 block text-lg font-semibold">
           Price
         </label>
         <input
@@ -102,11 +104,11 @@ function UpdateTour({ slug }) {
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           placeholder="price"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
         <label
           htmlFor="maxGroupSize"
-          className="block text-lg font-semibold mb-3"
+          className="mb-3 block text-lg font-semibold"
         >
           Maximum Group Size
         </label>
@@ -117,10 +119,10 @@ function UpdateTour({ slug }) {
           value={groupSize}
           onChange={(e) => setGroupSize(e.target.value)}
           placeholder="maximum group size"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
 
-        <label htmlFor="stops" className="block text-lg font-semibold mb-3">
+        <label htmlFor="stops" className="mb-3 block text-lg font-semibold">
           Number of Stops
         </label>
         <input
@@ -130,10 +132,10 @@ function UpdateTour({ slug }) {
           value={stops}
           onChange={(e) => setStops(e.target.value)}
           placeholder="number of stops"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
 
-        <label htmlFor="duration" className="block text-lg font-semibold mb-3">
+        <label htmlFor="duration" className="mb-3 block text-lg font-semibold">
           Duration
         </label>
         <input
@@ -143,11 +145,11 @@ function UpdateTour({ slug }) {
           value={duration}
           onChange={(e) => setDuration(e.target.value)}
           placeholder="duration"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
         <label
           htmlFor="difficulty"
-          className="block text-lg font-semibold mb-3"
+          className="mb-3 block text-lg font-semibold"
         >
           Difficulty
         </label>
@@ -156,13 +158,13 @@ function UpdateTour({ slug }) {
           id="difficulty"
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         >
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="difficult">Difficult</option>
         </select>
-        <label htmlFor="summary" className="block text-lg font-semibold mb-3">
+        <label htmlFor="summary" className="mb-3 block text-lg font-semibold">
           Summary
         </label>
         <input
@@ -172,11 +174,11 @@ function UpdateTour({ slug }) {
           value={summary}
           onChange={(e) => setSummary(e.target.value)}
           placeholder="summary"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         />
         <label
           htmlFor="description"
-          className="block text-lg font-semibold mb-3"
+          className="mb-3 block text-lg font-semibold"
         >
           Description
         </label>
@@ -188,12 +190,12 @@ function UpdateTour({ slug }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="description"
-          className="w-full block text-lg px-2 py-1 rounded mb-8 outline-none border-2 border-solid border-green-400"
+          className="outline-none mb-8 block w-full rounded border-2 border-solid border-green-400 px-2 py-1 text-lg"
         ></textarea>
 
         <button
           type="submit"
-          className="mt-10 text-lg py-2 px-7 rounded-full uppercase inline-block font-medium cursor-pointer text-white bg-green-500 transition-all duration-300 hover:-translate-y-px hover:shadow-lg disabled:bg-gray-400 disabled:text-gray-300"
+          className="mt-10 inline-block cursor-pointer rounded-full bg-green-500 py-2 px-7 text-lg font-medium uppercase text-white transition-all duration-300 hover:-translate-y-px hover:shadow-lg disabled:bg-gray-400 disabled:text-gray-300"
         >
           {savePostInfo.isLoading
             ? 'Saving...'
