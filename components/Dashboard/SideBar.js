@@ -1,22 +1,22 @@
 import SideBarOption from './SideBarOption';
 
-function SideBar({ select, setSelect, slug }) {
+function SideBar({ path }) {
   return (
-    <div className="flex-3 sticky top-16 max-h-screen bg-gray-100">
+    <div className="sticky top-16 max-h-screen flex-3 bg-gray-100">
       <SideBarOption
         name="All Bookings"
-        active={select === 'All Bookings'}
-        onClick={() => setSelect('All Bookings')}
-      />
-      <SideBarOption
-        name="Add Tour"
-        active={slug ? false : select === 'Add Tour'}
-        onClick={() => setSelect('Add Tour')}
+        isActive={path === 'bookings'}
+        path="/dashboard/bookings"
       />
       <SideBarOption
         name="Tour List"
-        active={select === 'Tour List'}
-        onClick={() => setSelect('Tour List')}
+        isActive={path === 'tours'}
+        path="/dashboard/tours"
+      />
+      <SideBarOption
+        name="Add Tour"
+        isActive={path === 'add-tour'}
+        path="/dashboard/add-tour"
       />
     </div>
   );

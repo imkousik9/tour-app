@@ -1,8 +1,9 @@
+import NextLink from 'next/link';
 import { format } from 'date-fns';
 import useDeleteTour from '../../lib/hooks/useDeleteTour';
 import { formatAmountForDisplay } from '../../utils/formatAmount';
 
-function Tour({ tour, setSelect, setSlug }) {
+function Tour({ tour }) {
   const [deletePost, deletePostInfo] = useDeleteTour();
 
   const handleDelete = async () => {
@@ -10,15 +11,15 @@ function Tour({ tour, setSelect, setSlug }) {
   };
 
   return (
-    <div className="flex bg-gray-100 rounded-lg m-4">
-      <div className="w-64 lg:w-img hidden md:inline-flex">
+    <div className="m-4 flex rounded-lg bg-gray-100">
+      <div className="hidden w-64 md:inline-flex lg:w-img">
         <img
           className="h-full rounded-lg"
-          src={`${process.env.NEXT_PUBLIC_URL}/tours/${tour.imageCover}`}
-          alt=""
+          src={tour.imageCover}
+          alt={tour.name}
         />
       </div>
-      <div className="px-4 md:px-8 py-4 w-full text-sm md:text-base">
+      <div className="w-full px-4 py-4 text-sm md:px-8 md:text-base">
         <p>
           <span className="font-semibold">Name:</span> {tour.name}
         </p>
@@ -48,18 +49,15 @@ function Tour({ tour, setSelect, setSlug }) {
           {tour.startLocation}
         </p>
       </div>
-      <div className="flex flex-col items-center justify-center space-y-3 mr-2 md:mr-4 lg:mr-8 text-sm md:text-base">
+      <div className="mr-2 flex flex-col items-center justify-center space-y-3 text-sm md:mr-4 md:text-base lg:mr-8">
+        <NextLink href={`/dashboard/update-tour/${tour?.slug}`}>
+          <a className="w-20 rounded-full bg-green-500 px-4 py-2 font-medium text-white transition-colors hover:bg-green-600 md:w-24">
+            Update
+          </a>
+        </NextLink>
+
         <button
-          className="bg-green-500 hover:bg-green-600 text-white font-medium px-4 py-2 rounded-full w-20 md:w-24 transition-colors"
-          onClick={() => {
-            setSelect('Update Tour');
-            setSlug(tour.slug);
-          }}
-        >
-          Update
-        </button>
-        <button
-          className="bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-full w-20 md:w-24 transition-colors"
+          className="w-20 rounded-full bg-red-500 px-4 py-2 font-medium text-white transition-colors hover:bg-red-600 md:w-24"
           onClick={handleDelete}
         >
           {deletePostInfo.isLoading

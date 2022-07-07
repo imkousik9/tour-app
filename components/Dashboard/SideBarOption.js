@@ -1,13 +1,16 @@
-function SideBarOption({ name, active, ...props }) {
+import NextLink from 'next/link';
+
+function SideBarOption({ name, isActive, path }) {
   return (
-    <h2
-      onClick={props.onClick}
-      className={`px-1 md:px-3 py-2 mb-1 text-sm md:text-base cursor-pointer transition-all font-medium hover:bg-green-50  ${
-        active && 'bg-green-50 border-l-4 border-green-600 text-green-600'
-      } `}
-    >
-      {name}
-    </h2>
+    <NextLink href={path}>
+      <a
+        className={`mb-1 block cursor-pointer px-1 py-2 text-sm font-medium transition-all hover:bg-green-50 md:px-3 md:text-base  ${
+          isActive && 'border-l-4 border-green-600 bg-green-50 text-green-600'
+        } `}
+      >
+        {name}
+      </a>
+    </NextLink>
   );
 }
 

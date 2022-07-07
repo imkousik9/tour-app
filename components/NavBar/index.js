@@ -14,12 +14,12 @@ function NavBar() {
   };
 
   return (
-    <header className="capitalize bg-gradient-to-r from-green-500 via-green-600 to-blue-500 text-gray-50 px-4 md:px-8 lg:px-12 h-16 z-50 flex justify-between items-center sticky top-0">
-      <nav className="flex items-center flex-2">
+    <header className="sticky top-0 z-50 flex h-16 items-center justify-between bg-gradient-to-r from-green-500 via-green-600 to-blue-500 px-4 capitalize text-gray-50 md:px-8 lg:px-12">
+      <nav className="flex flex-2 items-center">
         <NextLink href="/">
-          <a className="mr-2 md:mr-4 cursor-pointer w-16">
+          <a className="mr-2 w-16 cursor-pointer md:mr-4">
             <img
-              className="h-6 md:h-7 transition-all duration-200 hover:scale-105"
+              className="h-6 transition-all duration-200 hover:scale-105 md:h-7"
               src="/img/logo-white.png"
               alt="Natours logo"
             />
@@ -27,14 +27,14 @@ function NavBar() {
         </NextLink>
         {user?.role !== 'admin' && (
           <NextLink href="/tours">
-            <a className="text-sm md:text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+            <a className="inline-flex cursor-pointer items-center text-sm font-semibold no-underline transition-all duration-300 hover:-translate-y-0.5 md:text-base">
               All tours
             </a>
           </NextLink>
         )}
       </nav>
       <form
-        className="hidden lg:flex items-center border-2 border-solid border-gray-50 py-1 px-2 rounded-md"
+        className="hidden items-center rounded-md border-2 border-solid border-gray-50 py-1 px-2 lg:flex"
         onSubmit={handleSubmit}
       >
         <button className="mr-3 translate-y-px" type="submit">
@@ -46,7 +46,7 @@ function NavBar() {
           type="text"
           name="search"
           placeholder="Search tours"
-          className="outline-none bg-transparent text-base w-48 transition-all duration-300 focus:w-64"
+          className="outline-none w-48 bg-transparent text-base transition-all duration-300 focus:w-64"
         />
       </form>
 
@@ -55,39 +55,36 @@ function NavBar() {
           <Loader size="text-3xl" />
         </span>
       ) : user ? (
-        <nav className="flex items-center flex-2 justify-end">
-          <NextLink href={user?.role === 'admin' ? '/dashboard' : '/bookings'}>
-            <a className="mr-4 lg:mr-8 text-sm md:text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+        <nav className="flex flex-2 items-center justify-end">
+          <NextLink
+            href={user?.role === 'admin' ? '/dashboard/bookings' : '/bookings'}
+          >
+            <a className="mr-4 inline-flex cursor-pointer items-center text-sm font-semibold no-underline transition-all duration-300 hover:-translate-y-0.5 md:text-base lg:mr-8">
               {user?.role === 'admin' ? 'Dashboard' : 'My bookings'}
             </a>
           </NextLink>
           <button
-            className="mr-4 lg:mr-8 text-sm md:text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5"
+            className="mr-4 inline-flex cursor-pointer items-center text-sm font-semibold no-underline transition-all duration-300 hover:-translate-y-0.5 md:text-base lg:mr-8"
             onClick={signOut}
           >
             Log out
           </button>
           <NextLink href="#">
-            <a className="flex flex-col  text-sm md:text-base font-semibold no-underline items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
-              {/* <img
-                src={`/img/users/${user?.photo}`}
-                alt="User photo"
-                className="hidden md:inline-flex rounded-full mr-4"
-              /> */}
+            <a className="flex cursor-pointer  flex-col items-center text-sm font-semibold no-underline transition-all duration-300 hover:-translate-y-0.5 md:text-base">
               <FaUserAlt className="md:h-5 md:w-5" />
               <span>Hi, {user?.name}</span>
             </a>
           </NextLink>
         </nav>
       ) : (
-        <nav className="flex items-center flex-2 justify-end">
+        <nav className="flex flex-2 items-center justify-end">
           <NextLink href="/login">
-            <a className="mr-5 md:mr-8 text-sm md:text-base font-semibold no-underline inline-flex items-center transition-all duration-300 cursor-pointer hover:-translate-y-0.5">
+            <a className="mr-5 inline-flex cursor-pointer items-center text-sm font-semibold no-underline transition-all duration-300 hover:-translate-y-0.5 md:mr-8 md:text-base">
               Log in
             </a>
           </NextLink>
           <NextLink href="/register">
-            <a className="text-sm md:text-base font-semibold inline-flex items-center transition-all duration-300 cursor-pointer  py-2 px-5 rounded-3xl border border-solid border-current  hover:-translate-y-0.5 hover:bg-white hover:text-gray-500 hover:ring-2">
+            <a className="inline-flex cursor-pointer items-center rounded-3xl border border-solid border-current py-2  px-5 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5  hover:bg-white hover:text-gray-500 hover:ring-2 md:text-base">
               Sign up
             </a>
           </NextLink>

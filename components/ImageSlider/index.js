@@ -28,7 +28,7 @@ function ImageSlider({ images }) {
         >
           {images.map((image, index) => (
             <img
-              src={`${process.env.NEXT_PUBLIC_URL}/tours/${image}`}
+              src={image}
               key={index}
               className="keen-slider__slide"
               alt=""
