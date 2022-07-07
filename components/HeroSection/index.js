@@ -5,22 +5,23 @@ const HeroSection = () => {
     <div
       style={{
         backgroundSize: 'cover',
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_URL}/tours/tour-1-cover.jpg)`,
+        backgroundImage:
+          'url(https://res.cloudinary.com/dl7eqoydv/image/upload/v1657169399/tour-app/uploads/tour-1-cover_nodfie.jpg)',
         backgroundPosition: 'center center'
       }}
-      className="min-h-screen flex justify-center items-center flex-col"
+      className="flex min-h-screen flex-col items-center justify-center"
     >
-      <div className="border-8 border-green-800 rounded-2xl p-14 lg:p-24 text-center">
-        <h1 className="text-black uppercase text-cente text-xl md:text-2xl lg:text-4xl font-bold">
+      <div className="rounded-2xl border-8 border-green-800 p-14 text-center lg:p-24">
+        <h1 className="text-cente text-xl font-bold uppercase text-black md:text-2xl lg:text-4xl">
           It won&apos;t be returned without a story
         </h1>
 
-        <h4 className="text-green-900 text-lg md:text-xl font-medium mt-2">
+        <h4 className="mt-2 text-lg font-medium text-green-900 md:text-xl">
           Breathtaking hike through the Canadian Banff National Park
         </h4>
       </div>
       <NextLink href="/tours">
-        <a className="cursor-pointer bg-green-600 hover:-translate-y-0.5 transition-transform text-xl font-medium text-gray-50 mt-24 px-6 py-3 rounded-full">
+        <a className="mt-24 cursor-pointer rounded-full bg-green-600 px-6 py-3 text-xl font-medium text-gray-50 transition-transform hover:-translate-y-0.5">
           Book Now
         </a>
       </NextLink>

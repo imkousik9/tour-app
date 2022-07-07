@@ -15,8 +15,8 @@ function Tour({ tour }) {
       <div className="hidden w-64 md:inline-flex lg:w-img">
         <img
           className="h-full rounded-lg"
-          src={`${process.env.NEXT_PUBLIC_URL}/tours/${tour.imageCover}`}
-          alt=""
+          src={tour.imageCover}
+          alt={tour.name}
         />
       </div>
       <div className="w-full px-4 py-4 text-sm md:px-8 md:text-base">
