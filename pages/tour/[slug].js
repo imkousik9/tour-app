@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   };
 }
 
@@ -24,15 +24,14 @@ export async function getStaticProps({ params }) {
   const tour = await getTour(params?.slug);
 
   return {
-    props: { tour },
-    revalidate: 10
+    props: { tour }
   };
 }
 
 function Tour({ tour }) {
   return (
     <Layout title={tour.name}>
-      <div className="flex flex-col md:flex-row flex-1 p-5">
+      <div className="flex flex-1 flex-col p-5 md:flex-row">
         <ImageSlider images={tour.images} />
         <TourDetails tour={tour} />
       </div>
