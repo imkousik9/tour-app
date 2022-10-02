@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.27.2",
     "date-fns": "^2.23.0",
     "keen-slider": "^5.5.1",
     "next": "^12.2.0",
