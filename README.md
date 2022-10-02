@@ -65,4 +65,4 @@ After running the development server the site should be running on https://local
 <br>
 <b>Payment Getaway</b>: Razorpay
 <br>
-<b>Deployment</b>: Vercel, heroku
+<b>Deployment</b>: Vercel, render
